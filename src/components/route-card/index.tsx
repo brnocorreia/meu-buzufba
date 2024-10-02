@@ -54,7 +54,7 @@ export function RouteCard({ className, data, ...props }: RouteCardProps) {
   });
 
   return (
-    <Card className={cn("w-[380px]", className)} {...props}>
+    <Card className={cn("w-full", className)} {...props}>
       <CardHeader className="p-4">
         <CardTitle className="text-2xl">{data.name}</CardTitle>
         <CardDescription>
