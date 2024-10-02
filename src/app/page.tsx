@@ -20,6 +20,8 @@ export default function Home() {
             <Link
               href="https://drive.google.com/file/d/1CEW2RUjp2L7zi1rzHZgomML0j-_cfzw0/view?usp=sharing"
               className="underline hover:text-zinc-100 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Fonte dos dados (PROAE)
             </Link>
@@ -29,6 +31,8 @@ export default function Home() {
             <Link
               href="https://github.com/brnocorreia"
               className="underline hover:text-zinc-100 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Bruno Correia
             </Link>
