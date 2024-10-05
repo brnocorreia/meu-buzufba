@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { set, isAfter } from "date-fns";
 import { Badge } from "@/components/ui/badge";
