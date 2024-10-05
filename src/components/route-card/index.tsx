@@ -64,7 +64,7 @@ export function RouteCard({ className, data, ...props }: RouteCardProps) {
           <DialogTrigger asChild>
             <Button className="w-full">Ver mais detalhes</Button>
           </DialogTrigger>
-          <DialogContent className="flex flex-col w-screen h-screen md:w-[30vw] md:h-[auto] md:max-w-[30vw] md:max-h-[auto] py-0 overflow-y-auto">
+          <DialogContent className="flex flex-col w-[100dvw] h-[100dvh] md:w-[30vw] md:h-[auto] md:max-w-[30vw] md:max-h-[auto] py-0 overflow-y-auto">
             <DialogHeader className="flex flex-col w-full text-2xl font-bold items-start space-y-0">
               <DialogTitle className="text-2xl font-bold">
                 {data.name}
