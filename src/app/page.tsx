@@ -27,6 +27,16 @@ export default function Home() {
             </Link>
           </p>
           <p>
+            <Link
+              href="https://6vmutd5jzl7.typeform.com/to/R1slrfFh"
+              className="underline hover:text-zinc-100 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Sugira melhorias e reporte bugs
+            </Link>
+          </p>
+          <p>
             Made with ❤️ by{" "}
             <Link
               href="https://github.com/brnocorreia"

@@ -64,13 +64,13 @@ export function RouteCard({ className, data, ...props }: RouteCardProps) {
           <DialogTrigger asChild>
             <Button className="w-full">Ver mais detalhes</Button>
           </DialogTrigger>
-          <DialogContent className="flex flex-col w-[100dvw] h-[100dvh] md:w-[30vw] md:h-[auto] md:max-w-[30vw] md:max-h-[auto] pt-0 overflow-y-auto">
-            <DialogHeader className="flex flex-col w-full text-2xl font-bold items-start space-y-0">
+          <DialogContent className="flex flex-col w-[100dvw] h-[100dvh] md:w-[30vw] md:h-[auto] md:max-w-[30vw] md:max-h-[auto] p-2 lg:p-4 overflow-y-auto">
+            <DialogHeader className="flex flex-row w-full text-2xl font-bold items-center justify-between space-x-2">
               <DialogTitle className="text-2xl font-bold">
                 {data.name}
               </DialogTitle>
               <DialogDescription>
-                <p className="text-zinc-500 text-start text-base text-pretty">
+                <p className="text-zinc-500 text-start text-sm sm:text-sm text-pretty">
                   {data.departureLocation} {"->"} {data.arrivalLocation}
                 </p>
               </DialogDescription>
