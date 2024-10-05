@@ -11,10 +11,20 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "../ui/badge";
-import { useEffect, useState } from "react";
-import { isAfter, set } from "date-fns";
-import { Skeleton } from "../ui/skeleton";
 import { Routes } from "@/@types/routes";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { MapPin, Building, Clock } from "lucide-react";
+import { DialogDescription } from "@radix-ui/react-dialog";
+import BusSchedule from "./bus-schedule";
 
 type CardProps = React.ComponentProps<typeof Card>;
 
@@ -23,36 +33,6 @@ interface RouteCardProps extends CardProps {
 }
 
 export function RouteCard({ className, data, ...props }: RouteCardProps) {
-  const [remainingBusLefts, setRemainingBusLefts] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const filtrarHorarios = () => {
-      setIsLoading(true);
-      const now = new Date();
-
-      const remainingBusLefts = data.departures.filter((horario) => {
-        // Converte o horário string para um objeto Date
-        const [horas, minutos] = horario.split("h").map(Number);
-        const horarioDate = set(now, {
-          hours: horas,
-          minutes: minutos,
-          seconds: 0,
-        });
-
-        // Compara se o horário é depois de now
-        return isAfter(horarioDate, now);
-      });
-
-      setRemainingBusLefts(remainingBusLefts);
-      setIsLoading(false);
-    };
-
-    filtrarHorarios();
-    const intervalo = setInterval(filtrarHorarios, 60000);
-    return () => clearInterval(intervalo);
-  });
-
   return (
     <Card className={cn("w-full", className)} {...props}>
       <CardHeader className="p-4">
@@ -73,35 +53,107 @@ export function RouteCard({ className, data, ...props }: RouteCardProps) {
         <div className="flex items-start rounded-md border px-4 py-2">
           <div className="flex flex-col items-start gap-y-2 w-full">
             <p className="text-black font-semibold text-sm">Próximas saídas</p>
-            <div className="flex flex-wrap gap-2 h-[4rem] overflow-auto custom-scrollbar">
-              {!isLoading ? (
-                <>
-                  {remainingBusLefts.length > 0 ? (
-                    remainingBusLefts.map((time, index) => (
-                      <Badge
-                        key={index}
-                        className="bg-zinc-300 text-black hover:bg-zinc-100 cursor-pointer"
-                      >
-                        {time}
-                      </Badge>
-                    ))
-                  ) : (
-                    <Badge className="bg-zinc-300 text-black hover:bg-zinc-100 cursor-pointer">
-                      Sem saídas programadas para hoje
-                    </Badge>
-                  )}
-                </>
-              ) : (
-                <>
-                  <Skeleton className="h-[1.375rem] w-[5rem]" />
-                </>
-              )}
+            <div className="flex flex-wrap gap-2">
+              <BusSchedule departures={data.departures} enableSlice={true} />
             </div>
           </div>
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="w-full">Ver mais detalhes</Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button className="w-full">Ver mais detalhes</Button>
+          </DialogTrigger>
+          <DialogContent className=" flex flex-col w-screen h-screen md:w-[30vw] md:h-[auto] md:max-w-[30vw] md:max-h-[auto]">
+            <DialogHeader className="flex flex-col w-full text-2xl font-bold items-start">
+              <DialogTitle className="text-2xl font-bold">
+                {data.name}
+              </DialogTitle>
+              <DialogDescription>
+                <p className="text-zinc-500 text-start text-base text-pretty">
+                  {data.departureLocation} {"->"} {data.arrivalLocation}
+                </p>
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="flex flex-col w-full justify-start items-center gap-y-4">
+              <div className="flex flex-col w-full gap-2">
+                <div className="flex flex-row items-center gap-x-2">
+                  <Building />
+                  <p className="text-black font-semibold text-base">
+                    Locais atendidos
+                  </p>
+                </div>
+                <div className="flex flex-col w-full gap-2 p-2 border border-zinc-200 rounded-sm shadow-sm">
+                  <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-zinc-700 text-sm rounded-md p-1">
+                    {data.servedLocations.map((location, index) => (
+                      <div key={index} className="flex items-start text-black">
+                        <span className="mr-2 text-black font-semibold">
+                          {index + 1}.{" "}
+                        </span>
+                        {location}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col w-full gap-2">
+                <div className="flex flex-row items-center gap-x-2">
+                  <MapPin />
+                  <p className="text-black font-semibold text-base">
+                    Pontos de parada
+                  </p>
+                </div>
+                <Tabs defaultValue="going" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="going">Ida</TabsTrigger>
+                    <TabsTrigger value="back">Volta</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="going">
+                    <div className="flex flex-wrap w-full gap-2 p-2 border border-zinc-200 rounded-sm shadow-sm">
+                      {data.stops.departure.map((time, index) => (
+                        <Badge
+                          key={index}
+                          className="bg-zinc-300 text-black hover:bg-zinc-100 cursor-default"
+                        >
+                          {time}
+                        </Badge>
+                      ))}
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="back">
+                    <div className="flex flex-wrap w-full gap-2 p-2 border border-zinc-200 rounded-sm shadow-sm">
+                      {data.stops.arrival.map((time, index) => (
+                        <Badge
+                          key={index}
+                          className="bg-zinc-300 text-black hover:bg-zinc-100 cursor-default"
+                        >
+                          {time}
+                        </Badge>
+                      ))}
+                    </div>
+                  </TabsContent>
+                </Tabs>
+              </div>
+              <div className="flex flex-col w-full gap-2">
+                <div className="flex flex-row items-center gap-x-2">
+                  <Clock />
+                  <p className="text-black font-semibold text-base">Saídas</p>
+                </div>
+                <div className="flex flex-wrap w-full gap-2 p-2 border border-zinc-200 rounded-sm shadow-sm">
+                  <BusSchedule departures={data.departures} />
+                </div>
+              </div>
+            </div>
+            <DialogFooter className="w-full">
+              <DialogClose asChild>
+                <Button type="button" variant="destructive">
+                  Fechar
+                </Button>
+              </DialogClose>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </CardFooter>
     </Card>
   );
