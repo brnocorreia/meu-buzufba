@@ -1,3 +1,4 @@
+import DonateButton from "@/components/donate-button";
 import { RouteCard } from "@/components/route-card";
 import { data } from "@/constants/data";
 import Link from "next/link";
@@ -47,6 +48,8 @@ export default function Home() {
               Bruno Correia
             </Link>
           </p>
+
+          <DonateButton donateUrl="https://buymeacoffee.com/buzufba" message="Buy me a coffee"/>
         </div>
       </footer>
     </div>
