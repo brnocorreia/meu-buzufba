@@ -1,9 +1,10 @@
 "use client";
 
 import { FaBusAlt } from "react-icons/fa";
-import DonateButton from "../donate-button";
+import DonateButton from "@/components/donate-button";
 import { useRouter } from "next/navigation";
-import { HeaderNavigationMenu } from "./navigation-menu";
+import { HeaderNavigationMenu } from "@/components/header/navigation-menu";
+import GithubButton from "@/components/github-button";
 
 export default function Header() {
   const router = useRouter();
@@ -20,10 +21,13 @@ export default function Header() {
           onClick={handleHomeNavigation}
         />
         <HeaderNavigationMenu />
-        <DonateButton
-          donateUrl="https://buymeacoffee.com/meubuzufba"
-          variant="small"
-        />
+        <div className="flex items-center gap-2">
+          <GithubButton githubUrl="https://github.com/brnocorreia/meu-buzufba" />
+          <DonateButton
+            donateUrl="https://buymeacoffee.com/meubuzufba"
+            variant="small"
+          />
+        </div>
       </div>
     </header>
   );
