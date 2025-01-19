@@ -10,8 +10,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Routes } from "@/@types/routes";
-import BusSchedule from "./bus-schedule";
-import RouteDetailsPopup from "../route-details-popup";
+import BusSchedule from "@/components/bus-schedule";
+import RouteDetailsPopup from "@/components/route-details-popup";
 
 type CardProps = React.ComponentProps<typeof Card>;
 

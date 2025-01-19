@@ -1,8 +1,8 @@
 "use client";
 
 import { Building, MapPin, Clock } from "lucide-react";
-import BusSchedule from "../route-card/bus-schedule";
-import { Button } from "../ui/button";
+import BusSchedule from "@/components/bus-schedule";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -12,10 +12,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../ui/dialog";
+} from "@/components/ui/dialog";
 import { Routes } from "@/@types/routes";
-import { Badge } from "../ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface RouteDetailsPopupProps {
   routes: Routes;
