@@ -16,3 +16,14 @@ export interface Routes {
 export interface RoutesWithFavorite extends Routes {
   isFavorite: boolean;
 }
+
+export enum DepartureStatusEnum {
+  UPCOMING = "upcoming",
+  NEXT = "next",
+  PAST = "past",
+}
+
+export interface DepartureStatus {
+  departure: string;
+  status: DepartureStatusEnum;
+}

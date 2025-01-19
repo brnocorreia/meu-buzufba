@@ -15,6 +15,7 @@ import RouteDetailsPopup from "@/components/route-details-popup";
 import { useAtom } from "jotai";
 import { favoriteRoutesAtom } from "@/atoms/favorite-routes";
 import FavoriteIcon from "@/components/favorite-icon";
+import { InfoPopover } from "../info-popover";
 
 type CardProps = React.ComponentProps<typeof Card>;
 
@@ -58,7 +59,12 @@ export function RouteCard({ className, route, ...props }: RouteCardProps) {
         </div>
         <div className="flex items-start rounded-md border px-4 py-2">
           <div className="flex flex-col items-start gap-y-2 w-full">
-            <p className="text-black font-semibold text-sm">Próximas saídas</p>
+            <div className="flex flex-row items-center gap-x-1 w-full">
+              <p className="text-black font-semibold text-sm">
+                Próximas saídas
+              </p>
+              <InfoPopover side="top" />
+            </div>
             <div className="flex flex-wrap gap-2">
               <BusSchedule departures={route.departures} enableSlice={true} />
             </div>

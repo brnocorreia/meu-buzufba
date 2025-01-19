@@ -16,6 +16,7 @@ import {
 import { Routes } from "@/@types/routes";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { InfoPopover } from "../info-popover";
 
 interface RouteDetailsPopupProps {
   route: Routes;
@@ -42,7 +43,7 @@ export default function RouteDetailsPopup({ route }: RouteDetailsPopupProps) {
           <div className="flex flex-col w-full justify-start items-center gap-y-2">
             <div className="flex flex-col w-full gap-2">
               <div className="flex flex-row items-center gap-x-2">
-                <Building />
+                <Building size={20} />
                 <p className="text-black font-semibold text-base">
                   Locais atendidos
                 </p>
@@ -62,7 +63,7 @@ export default function RouteDetailsPopup({ route }: RouteDetailsPopupProps) {
             </div>
             <div className="flex flex-col w-full gap-2">
               <div className="flex flex-row items-center gap-x-2">
-                <MapPin />
+                <MapPin size={20} />
                 <p className="text-black font-semibold text-base">
                   Pontos de parada
                 </p>
@@ -99,9 +100,12 @@ export default function RouteDetailsPopup({ route }: RouteDetailsPopupProps) {
               </Tabs>
             </div>
             <div className="flex flex-col w-full gap-2">
-              <div className="flex flex-row items-center gap-x-2">
-                <Clock />
-                <p className="text-black font-semibold text-base">Saídas</p>
+              <div>
+                <div className="flex flex-row items-center gap-x-2">
+                  <Clock size={20} />
+                  <p className="text-black font-semibold text-base">Saídas</p>
+                  <InfoPopover />
+                </div>
               </div>
               <div className="flex flex-wrap w-full gap-2 p-2 border border-zinc-200 rounded-sm shadow-sm">
                 <BusSchedule departures={route.departures} />
