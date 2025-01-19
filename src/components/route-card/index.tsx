@@ -9,23 +9,42 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Routes } from "@/@types/routes";
+import { RoutesWithFavorite } from "@/@types/routes";
 import BusSchedule from "@/components/bus-schedule";
 import RouteDetailsPopup from "@/components/route-details-popup";
+import { useAtom } from "jotai";
+import { favoriteRoutesAtom } from "@/atoms/favorite-routes";
+import FavoriteIcon from "@/components/favorite-icon";
 
 type CardProps = React.ComponentProps<typeof Card>;
 
 interface RouteCardProps extends CardProps {
-  data: Routes;
+  route: RoutesWithFavorite;
 }
 
-export function RouteCard({ className, data, ...props }: RouteCardProps) {
+export function RouteCard({ className, route, ...props }: RouteCardProps) {
+  const [favoriteRoutes, setFavoriteRoutes] = useAtom(favoriteRoutesAtom);
+
+  const handleFavorite = () => {
+    if (favoriteRoutes.includes(route.id)) {
+      setFavoriteRoutes((prev) => prev.filter((id) => id !== route.id));
+      return;
+    }
+    setFavoriteRoutes((prev) => [...prev, route.id]);
+  };
+
   return (
     <Card className={cn("w-full", className)} {...props}>
       <CardHeader className="p-4">
-        <CardTitle className="text-2xl">{data.name}</CardTitle>
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-2xl">{route.name}</CardTitle>
+          <FavoriteIcon
+            isFavorite={route.isFavorite}
+            handleFavorite={handleFavorite}
+          />
+        </div>
         <CardDescription>
-          {data.departureLocation} {"->"} {data.arrivalLocation}
+          {route.departureLocation} {"->"} {route.arrivalLocation}
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4 px-4 pb-4">
@@ -33,7 +52,7 @@ export function RouteCard({ className, data, ...props }: RouteCardProps) {
           <div className="flex flex-col items-start gap-y-1 w-full h-[6.5rem] overflow-auto">
             <p className="text-black font-semibold text-sm">Locais atendidos</p>
             <p className="text-zinc-500 text-start text-sm text-pretty">
-              {data.servedLocations.join(", ")}
+              {route.servedLocations.join(", ")}
             </p>
           </div>
         </div>
@@ -41,13 +60,13 @@ export function RouteCard({ className, data, ...props }: RouteCardProps) {
           <div className="flex flex-col items-start gap-y-2 w-full">
             <p className="text-black font-semibold text-sm">Próximas saídas</p>
             <div className="flex flex-wrap gap-2">
-              <BusSchedule departures={data.departures} enableSlice={true} />
+              <BusSchedule departures={route.departures} enableSlice={true} />
             </div>
           </div>
         </div>
       </CardContent>
       <CardFooter>
-        <RouteDetailsPopup routes={data} />
+        <RouteDetailsPopup route={route} />
       </CardFooter>
     </Card>
   );

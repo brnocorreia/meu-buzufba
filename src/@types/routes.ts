@@ -12,3 +12,7 @@ export interface Routes {
   };
   obs?: string;
 }
+
+export interface RoutesWithFavorite extends Routes {
+  isFavorite: boolean;
+}

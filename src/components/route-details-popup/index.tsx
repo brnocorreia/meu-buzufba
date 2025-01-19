@@ -18,10 +18,10 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface RouteDetailsPopupProps {
-  routes: Routes;
+  route: Routes;
 }
 
-export default function RouteDetailsPopup({ routes }: RouteDetailsPopupProps) {
+export default function RouteDetailsPopup({ route }: RouteDetailsPopupProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -31,11 +31,11 @@ export default function RouteDetailsPopup({ routes }: RouteDetailsPopupProps) {
         <div className="flex flex-col gap-y-4">
           <DialogHeader className="flex flex-row w-full text-2xl font-bold items-center justify-between space-x-2">
             <DialogTitle className="text-2xl font-bold">
-              {routes.name}
+              {route.name}
             </DialogTitle>
             <DialogDescription>
               <p className="text-zinc-500 text-start text-sm sm:text-sm text-pretty">
-                {routes.departureLocation} {"->"} {routes.arrivalLocation}
+                {route.departureLocation} {"->"} {route.arrivalLocation}
               </p>
             </DialogDescription>
           </DialogHeader>
@@ -49,7 +49,7 @@ export default function RouteDetailsPopup({ routes }: RouteDetailsPopupProps) {
               </div>
               <div className="flex flex-col w-full gap-2 p-2 border border-zinc-200 rounded-sm shadow-sm">
                 <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-zinc-700 text-sm rounded-md p-1">
-                  {routes.servedLocations.map((location, index) => (
+                  {route.servedLocations.map((location, index) => (
                     <div key={index} className="flex items-start text-black">
                       <span className="mr-2 text-black font-semibold">
                         {index + 1}.{" "}
@@ -74,7 +74,7 @@ export default function RouteDetailsPopup({ routes }: RouteDetailsPopupProps) {
                 </TabsList>
                 <TabsContent value="going">
                   <div className="flex flex-wrap w-full gap-2 p-2 border border-zinc-200 rounded-sm shadow-sm">
-                    {routes.stops.departure.map((time, index) => (
+                    {route.stops.departure.map((time, index) => (
                       <Badge
                         key={index}
                         className="bg-zinc-300 text-black hover:bg-zinc-100 cursor-default"
@@ -86,7 +86,7 @@ export default function RouteDetailsPopup({ routes }: RouteDetailsPopupProps) {
                 </TabsContent>
                 <TabsContent value="back">
                   <div className="flex flex-wrap w-full gap-2 p-2 border border-zinc-200 rounded-sm shadow-sm">
-                    {routes.stops.arrival.map((time, index) => (
+                    {route.stops.arrival.map((time, index) => (
                       <Badge
                         key={index}
                         className="bg-zinc-300 text-black hover:bg-zinc-100 cursor-default"
@@ -104,7 +104,7 @@ export default function RouteDetailsPopup({ routes }: RouteDetailsPopupProps) {
                 <p className="text-black font-semibold text-base">Saídas</p>
               </div>
               <div className="flex flex-wrap w-full gap-2 p-2 border border-zinc-200 rounded-sm shadow-sm">
-                <BusSchedule departures={routes.departures} />
+                <BusSchedule departures={route.departures} />
               </div>
             </div>
           </div>
