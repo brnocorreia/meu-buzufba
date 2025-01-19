@@ -3,6 +3,7 @@
 import { FaBusAlt } from "react-icons/fa";
 import DonateButton from "../donate-button";
 import { useRouter } from "next/navigation";
+import { HeaderNavigationMenu } from "./navigation-menu";
 
 export default function Header() {
   const router = useRouter();
@@ -18,6 +19,7 @@ export default function Header() {
           className="w-8 h-8 text-white text-2xl cursor-pointer"
           onClick={handleHomeNavigation}
         />
+        <HeaderNavigationMenu />
         <DonateButton
           donateUrl="https://buymeacoffee.com/meubuzufba"
           variant="small"
