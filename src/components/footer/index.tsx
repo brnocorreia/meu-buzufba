@@ -49,7 +49,7 @@ export default function Footer() {
         </p>
 
         <DonateButton
-          donateUrl="https://buymeacoffee.com/buzufba"
+          donateUrl="https://buymeacoffee.com/meubuzufba"
           message="Buy me a coffee"
         />
       </div>

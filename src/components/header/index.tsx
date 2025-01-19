@@ -7,7 +7,7 @@ export default function Header() {
       <div className="flex flex-1 items-center justify-between w-full h-full max-w-7xl sm:px-6 lg:px-8">
         <FaBusAlt className="w-8 h-8 text-white text-2xl" />
         <DonateButton
-          donateUrl="https://buymeacoffee.com/buzufba"
+          donateUrl="https://buymeacoffee.com/meubuzufba"
           variant="small"
         />
       </div>
