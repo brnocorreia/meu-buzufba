@@ -10,11 +10,11 @@ O Meu Buzufba é um projeto open source que visa ajudar a comunidade de docentes
 - [x] Visualizar paradas
 - [x] Visualizar horários
 - [x] Favoritar linhas
-- [] Acompanhamento de atualizações e ocorrências
-- [] Visualizar mapas
-- [] Achados e perdidos
-- [] Acompanhamento de viagens em tempo real
-- [] Notificação de saídas de ônibus
+- [ ] Acompanhamento de atualizações e ocorrências
+- [ ] Visualizar mapas
+- [ ] Achados e perdidos
+- [ ] Acompanhamento de viagens em tempo real
+- [ ] Notificação de saídas de ônibus
 
 ## Contribuição
 
