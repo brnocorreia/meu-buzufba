@@ -1,30 +1,19 @@
-"use client";
-
-import { RouteCard } from "@/components/route-card";
-import { data } from "@/constants/data";
-import { useAtom } from "jotai";
-import { favoriteRoutesAtom } from "@/atoms/favorite-routes";
+import EmptyPage from "@/components/empty-page";
 import PageContent from "@/components/page/page-content";
+import { OctagonX } from "lucide-react";
 
 export default function Home() {
-  const [favoriteRoutes] = useAtom(favoriteRoutesAtom);
-
-  const routesWithFavorite = data
-    .map((route) => ({
-      ...route,
-      isFavorite: favoriteRoutes.includes(route.id),
-    }))
-    .sort((a, b) => (b.isFavorite ? 1 : 0) - (a.isFavorite ? 1 : 0));
-
   return (
     <PageContent>
-      <div className="max-w-7xl pt-5 mx-auto sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {routesWithFavorite.map((route) => (
-            <RouteCard key={route.id} route={route} />
-          ))}
-        </div>
-      </div>
+      <EmptyPage
+        title="Oops!"
+        description={
+          "Aparentemente você tentou acessar uma rota inexistente..."
+        }
+        redirectLink="/rotas"
+        redirectText="Voltar para a página de rotas"
+        icon={<OctagonX className="w-20 h-20 text-red-500" />}
+      />
     </PageContent>
   );
 }

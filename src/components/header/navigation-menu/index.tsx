@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import {
   NavigationMenu,
@@ -10,13 +8,15 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { data } from "@/constants/data";
 import { NavigationMenuListItem } from "./navigation-menu-item";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { getAllRoutes } from "@/lib/routes-repository";
 
 export function HeaderNavigationMenu() {
+  const routes = getAllRoutes();
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -35,7 +35,7 @@ export function HeaderNavigationMenu() {
                   <p>Expresso, B1, B2, B3, B4 e B5</p>
                 </div>
               </NavigationMenuListItem>
-              {data.map((route) => (
+              {routes.map((route) => (
                 <NavigationMenuListItem
                   key={route.id}
                   title={route.name}

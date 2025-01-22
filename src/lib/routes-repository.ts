@@ -1,5 +1,5 @@
 import { Routes } from "@/@types/routes";
-import { routesData } from "@/constants/data";
+import { routesData } from "@/constants/routes-data";
 
 export type RoutesRecord = Record<string, Routes>;
 

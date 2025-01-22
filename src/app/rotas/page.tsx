@@ -1,7 +1,7 @@
 "use client";
 
 import { RouteCard } from "@/components/route-card";
-import { data } from "@/constants/data";
+import { getAllRoutes } from "@/lib/routes-repository";
 import { useAtom } from "jotai";
 import { favoriteRoutesAtom } from "@/atoms/favorite-routes";
 import PageContent from "@/components/page/page-content";
@@ -9,7 +9,7 @@ import PageContent from "@/components/page/page-content";
 export default function Home() {
   const [favoriteRoutes] = useAtom(favoriteRoutesAtom);
 
-  const routesWithFavorite = data
+  const routesWithFavorite = getAllRoutes()
     .map((route) => ({
       ...route,
       isFavorite: favoriteRoutes.includes(route.id),

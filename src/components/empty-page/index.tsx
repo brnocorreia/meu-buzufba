@@ -1,4 +1,4 @@
-import { Construction, ArrowLeftIcon } from "lucide-react";
+import { ArrowLeftIcon, Construction } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -7,6 +7,7 @@ interface EmptyPageProps {
   description: string;
   redirectLink: string;
   redirectText: string;
+  icon?: React.ReactNode;
 }
 
 export default function EmptyPage({
@@ -14,15 +15,15 @@ export default function EmptyPage({
   description,
   redirectLink,
   redirectText,
+  icon,
 }: EmptyPageProps) {
   return (
     <>
-      <div className="flex flex-row items-center justify-center gap-3 mb-4">
-        <Construction className="w-10 h-10 text-white" />
+      <div className="flex flex-col items-center justify-center gap-3 mb-4">
+        {icon || <Construction className="w-20 h-20 text-white" />}
         <h1 className="text-4xl md:text-6xl font-bold text-white text-wrap">
           {title}
         </h1>
-        <Construction className="w-10 h-10 text-white" />
       </div>
       <p className="text-lg md:text-xl text-gray-300 mb-8 text-center max-w-2xl">
         {description}

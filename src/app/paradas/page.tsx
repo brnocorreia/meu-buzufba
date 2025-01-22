@@ -1,7 +1,7 @@
 import EmptyPage from "@/components/empty-page";
 import PageContent from "@/components/page/page-content";
 
-export default function Paradas() {
+export default function Stops() {
   return (
     <PageContent>
       <EmptyPage
