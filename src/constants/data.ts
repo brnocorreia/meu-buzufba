@@ -1,6 +1,6 @@
 import { Routes } from "@/@types/routes";
 
-export const data: Routes[] = [
+export const routesData: Routes[] = [
   {
     id: "EXPRESSO",
     name: "Rota Expresso",
