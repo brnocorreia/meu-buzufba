@@ -21,7 +21,7 @@ export function SignupForm({
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
   const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -41,15 +41,10 @@ export function SignupForm({
 
     setIsLoading(true);
 
-    try {
-      await signup({ name, lastName, email, password });
-      router.push("/rotas");
-    } catch (error) {
-      console.error(error);
-      setError("Erro ao criar conta");
-    } finally {
-      setIsLoading(false);
-    }
+    signup({ id: "1", name, surname, email });
+    router.push("/rotas");
+
+    setIsLoading(false);
   };
 
   return (
@@ -83,8 +78,8 @@ export function SignupForm({
                     id="last-name"
                     type="text"
                     placeholder="Silva"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
+                    value={surname}
+                    onChange={(e) => setSurname(e.target.value)}
                   />
                 </div>
               </div>

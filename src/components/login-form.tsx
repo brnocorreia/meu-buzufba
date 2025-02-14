@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,8 +12,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { useAuth } from "@/hooks/use-auth";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/hooks/use-auth";
 
 export function LoginForm({
   className,
@@ -22,25 +22,23 @@ export function LoginForm({
 }: React.ComponentPropsWithoutRef<"div">) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
     setIsLoading(true);
 
-    try {
-      await login({ email, password });
-      router.push("/rotas");
-    } catch (error) {
-      console.error(error);
-      setError("Credenciais inválidas");
-    } finally {
-      setIsLoading(false);
-    }
+    login({
+      id: "1",
+      name: "Bruno",
+      surname: "Correia",
+      email: email,
+    });
+
+    router.push("/rotas");
+    setIsLoading(false);
   };
 
   return (
@@ -84,9 +82,6 @@ export function LoginForm({
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              {error && (
-                <p className="text-sm text-red-500 text-center">{error}</p>
-              )}
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading ? "Carregando..." : "Login"}
               </Button>

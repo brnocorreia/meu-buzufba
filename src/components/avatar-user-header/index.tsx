@@ -15,7 +15,6 @@ export default function AvatarUserHeader() {
 
   const handleLogout = () => {
     logout();
-    router.push("/login");
   };
 
   if (!user) {
@@ -25,16 +24,12 @@ export default function AvatarUserHeader() {
         onClick={() => router.push("/login")}
       >
         <AvatarImage />
-        <AvatarFallback className="text-sm">?</AvatarFallback>
+        <AvatarFallback className="text-sm font-semibold">?</AvatarFallback>
       </Avatar>
     );
   }
 
-  const initials = user.name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .toUpperCase();
+  const initials = `${user.name.charAt(0)}${user.surname.charAt(0)}`;
 
   return (
     <DropdownMenu>
