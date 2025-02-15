@@ -5,7 +5,6 @@ import DonateButton from "@/components/donate-button";
 import { useRouter } from "next/navigation";
 import { HeaderNavigationMenu } from "@/components/header/navigation-menu";
 import GithubButton from "@/components/github-button";
-import AvatarUserHeader from "@/components/avatar-user-header";
 
 export default function Header() {
   const router = useRouter();
@@ -28,7 +27,6 @@ export default function Header() {
             donateUrl="https://buymeacoffee.com/meubuzufba"
             variant="small"
           />
-          <AvatarUserHeader />
         </div>
       </div>
     </header>
