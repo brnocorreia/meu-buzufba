@@ -26,8 +26,10 @@ import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function SignIn() {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof signInFormSchema>>({
@@ -40,19 +42,19 @@ export default function SignIn() {
 
   async function onSubmit(values: z.infer<typeof signInFormSchema>) {
     const { email, password } = values;
+    setIsLoading(true);
     await authClient.signIn.email(
       {
         email,
         password,
-        callbackURL: "/admin/dashboard",
       },
       {
-        onRequest: () => {
-          setIsLoading(true);
-        },
+        onRequest: () => {},
         onSuccess: () => {
           toast.success("Login realizado com sucesso");
           setIsLoading(false);
+          router.push("/admin/dashboard");
+          form.reset();
         },
         onError: () => {
           toast.error("Erro ao realizar login");

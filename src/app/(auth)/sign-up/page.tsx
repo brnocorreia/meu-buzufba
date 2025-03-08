@@ -47,24 +47,23 @@ export default function SignUp() {
   const onSubmit = async (values: z.infer<typeof signUpFormSchema>) => {
     const { name, email, password } = values;
 
+    setIsLoading(true);
     await authClient.signUp.email(
       {
         name,
         email,
         password,
-        callbackURL: "/sign-in",
       },
       {
-        onRequest: () => {
-          setIsLoading(true);
-        },
+        onRequest: () => {},
         onSuccess: () => {
+          toast.success("Conta criada com sucesso. Faça login para continuar.");
           setIsLoading(false);
-          toast.success("Conta criada com sucesso");
           router.push("/sign-in");
+          form.reset();
         },
         onError: () => {
-          toast.error("Erro ao criar conta");
+          toast.error("Erro ao criar conta. Tente novamente.");
           setIsLoading(false);
         },
       }
