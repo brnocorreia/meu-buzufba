@@ -51,10 +51,12 @@ export function RouteCard({ className, route, ...props }: RouteCardProps) {
       <CardContent className="grid gap-4 px-4 pb-4">
         <div className=" flex items-center space-x-4 rounded-md border p-4">
           <div className="flex flex-col items-start gap-y-1 w-full h-[6.5rem] overflow-auto">
-            <p className="text-black font-semibold text-sm">Locais atendidos</p>
-            <p className="text-zinc-500 text-start text-sm text-pretty">
+            <span className="text-black font-semibold text-sm">
+              Locais atendidos
+            </span>
+            <span className="text-zinc-500 text-start text-sm text-pretty">
               {route.servedLocations.join(", ")}
-            </p>
+            </span>
           </div>
         </div>
         <div className="flex items-start rounded-md border px-4 py-2">

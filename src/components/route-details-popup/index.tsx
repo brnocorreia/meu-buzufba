@@ -35,9 +35,9 @@ export default function RouteDetailsPopup({ route }: RouteDetailsPopupProps) {
               {route.name}
             </DialogTitle>
             <DialogDescription>
-              <p className="text-zinc-500 text-start text-sm sm:text-sm text-pretty">
+              <span className="text-zinc-500 text-start text-sm sm:text-sm text-pretty">
                 {route.departureLocation} {"->"} {route.arrivalLocation}
-              </p>
+              </span>
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col w-full justify-start items-center gap-y-2">
