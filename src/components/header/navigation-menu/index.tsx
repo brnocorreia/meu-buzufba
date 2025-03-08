@@ -31,9 +31,7 @@ export function HeaderNavigationMenu() {
                 title={"Todas as rotas"}
                 href={"/rotas"}
               >
-                <div>
-                  <p>Expresso, B1, B2, B3, B4 e B5</p>
-                </div>
+                <span>Expresso, B1, B2, B3, B4 e B5</span>
               </NavigationMenuListItem>
               {routes.map((route) => (
                 <NavigationMenuListItem
@@ -41,11 +39,9 @@ export function HeaderNavigationMenu() {
                   title={route.name}
                   href={`/rotas/${route.id}`}
                 >
-                  <div>
-                    <p>
-                      {route.departureLocation} {"->"} {route.arrivalLocation}
-                    </p>
-                  </div>
+                  <span>
+                    {route.departureLocation} {"->"} {route.arrivalLocation}
+                  </span>
                 </NavigationMenuListItem>
               ))}
             </ul>
