@@ -42,20 +42,23 @@ export default function SignUp() {
       email: "",
       password: "",
     },
+    mode: "onTouched",
   });
 
   const onSubmit = async (values: z.infer<typeof signUpFormSchema>) => {
     const { name, email, password } = values;
 
-    setIsLoading(true);
     await authClient.signUp.email(
       {
         name,
         email,
         password,
+        callbackURL: "/sign-in",
       },
       {
-        onRequest: () => {},
+        onRequest: () => {
+          setIsLoading(true);
+        },
         onSuccess: () => {
           toast.success("Conta criada com sucesso. Faça login para continuar.");
           setIsLoading(false);
@@ -123,7 +126,11 @@ export default function SignUp() {
                 </FormItem>
               )}
             />
-            <Button className="w-full" type="submit" disabled={isLoading}>
+            <Button
+              className="w-full disabled:cursor-not-allowed"
+              type="submit"
+              disabled={!form.formState.isValid || isLoading}
+            >
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

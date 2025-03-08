@@ -21,7 +21,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>{children}</Providers>
-        <Toaster richColors />
+        <Toaster
+          richColors
+          closeButton
+          expand
+          visibleToasts={3}
+          position="top-right"
+          offset={{ top: 72 }}
+          mobileOffset={{ top: 70 }}
+        />
       </body>
     </html>
   );

@@ -38,18 +38,20 @@ export default function SignIn() {
       email: "",
       password: "",
     },
+    mode: "onTouched",
   });
 
   async function onSubmit(values: z.infer<typeof signInFormSchema>) {
     const { email, password } = values;
-    setIsLoading(true);
     await authClient.signIn.email(
       {
         email,
         password,
       },
       {
-        onRequest: () => {},
+        onRequest: () => {
+          setIsLoading(true);
+        },
         onSuccess: () => {
           toast.success("Login realizado com sucesso");
           setIsLoading(false);
@@ -109,7 +111,7 @@ export default function SignIn() {
             <Button
               className="w-full disabled:cursor-not-allowed"
               type="submit"
-              disabled={isLoading}
+              disabled={!form.formState.isValid || isLoading}
             >
               {isLoading ? (
                 <>

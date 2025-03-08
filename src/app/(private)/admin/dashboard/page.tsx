@@ -3,6 +3,7 @@ import ClientComponent from "@/components/client-component";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { toast } from "sonner";
 
 export default async function DashboardPage() {
   const session = await auth.api.getSession({

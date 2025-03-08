@@ -3,6 +3,7 @@
 import { db } from "@/db";
 import { allowedEmails } from "@/db/schema";
 import { eq } from "drizzle-orm";
+
 export async function isEmailAllowed(email: string): Promise<boolean> {
   try {
     const result = await db
