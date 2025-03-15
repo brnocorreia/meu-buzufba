@@ -28,7 +28,7 @@ export default function RouteDetailsPopup({ route }: RouteDetailsPopupProps) {
       <DialogTrigger asChild>
         <Button className="w-full">Ver mais detalhes</Button>
       </DialogTrigger>
-      <DialogContent className="flex flex-col w-[100dvw] h-[100dvh] md:w-[40vw] md:h-[auto] md:max-w-[40vw] md:max-h-[auto] p-2 lg:p-4 overflow-y-auto justify-between">
+      <DialogContent className="flex flex-col rounded-xl w-[95dvw] h-[95dvh] md:w-[50vw] md:h-[auto] md:max-w-[50vw] md:max-h-[auto] p-2 lg:p-4 overflow-y-auto justify-between">
         <div className="flex flex-col gap-y-4">
           <DialogHeader className="flex flex-row w-full text-2xl font-bold items-center justify-between space-x-2">
             <DialogTitle className="text-2xl font-bold">

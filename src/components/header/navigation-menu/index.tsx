@@ -18,10 +18,10 @@ export function HeaderNavigationMenu() {
   const routes = getAllRoutes();
 
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
+    <NavigationMenu className="mx-auto">
+      <NavigationMenuList className="gap-1">
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-white hover:text-white bg-transparent">
+          <NavigationMenuTrigger className="text-white hover:text-white bg-transparent hover:bg-zinc-900">
             Rotas
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -52,7 +52,7 @@ export function HeaderNavigationMenu() {
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                "text-white hover:text-white bg-transparent hover:bg-transparent gap-1"
+                "text-white hover:text-white hover:bg-zinc-900 bg-transparent gap-1"
               )}
             >
               Paradas

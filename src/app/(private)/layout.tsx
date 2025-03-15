@@ -8,7 +8,7 @@ export default function AdminLayout({
   return (
     <>
       <Header />
-      {children}
+      <div className="pt-24">{children}</div>
     </>
   );
 }
