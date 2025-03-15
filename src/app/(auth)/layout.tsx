@@ -7,7 +7,7 @@ export default function AuthLayout({
 }>) {
   return (
     <>
-      <Header isSimple />
+      {/* <Header isSimple /> */}
       <main>
         <div className="h-screen pt-24 flex flex-col items-center justify-center px-3 bg-zinc-800">
           {children}
