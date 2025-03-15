@@ -7,7 +7,7 @@ export default function AdminLayout({
 }) {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className="pt-24">{children}</div>
     </>
   );
