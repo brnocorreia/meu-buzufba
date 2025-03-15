@@ -47,11 +47,6 @@ export default function Footer() {
             Márcio
           </Link>
         </p>
-
-        <DonateButton
-          donateUrl="https://buymeacoffee.com/meubuzufba"
-          message="Buy me a coffee"
-        />
       </div>
     </footer>
   );
