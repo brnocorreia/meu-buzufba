@@ -14,9 +14,10 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   authors: [{ name: "Bruno Correia", url: "https://github.com/brnocorreia" }],
   creator: "Bruno Correia",
+  themeColor: "#27272A",
   appleWebApp: {
     capable: true,
-    statusBarStyle: "black-translucent",
+    statusBarStyle: "default",
     title: "Meu Buzufba",
   },
   viewport: {
@@ -37,6 +38,7 @@ export default function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-title" content="Buzufba" />
         <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="theme-color" content="#27272a" />
       </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
