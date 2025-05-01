@@ -1,13 +1,10 @@
-import Header from "@/components/header";
-
-export default function PublicLayout({
+export default function RouteDetailsLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <>
-      {/* <Header /> */}
       <div>{children}</div>
     </>
   );

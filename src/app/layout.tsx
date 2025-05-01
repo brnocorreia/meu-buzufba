@@ -1,12 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
 import { Providers } from "@/providers/jotai";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+const geist = Geist({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Meu Buzufba",
@@ -41,7 +43,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#27272a" />
       </head>
-      <body className={inter.className}>
+      <body className={geist.className}>
         <Providers>{children}</Providers>
         <Toaster
           richColors

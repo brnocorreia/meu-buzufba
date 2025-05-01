@@ -1,7 +1,8 @@
+import DetailsHeader from "@/components/details-header";
 import EmptyPage from "@/components/empty-page";
 import PageContent from "@/components/page/page-content";
 import { getRouteById, getRouteIds } from "@/lib/routes-repository";
-import { OctagonX } from "lucide-react";
+import { OctagonX, ChevronLeft, MapPinHouse } from "lucide-react";
 
 export async function generateStaticParams() {
   return getRouteIds().map((id) => ({ id }));
@@ -32,13 +33,22 @@ export default async function Route({
   }
 
   return (
-    <PageContent>
-      <EmptyPage
-        title="Oops!"
-        description={`Parece que a página da parada ${id} ainda não está pronta. Mas não se preocupe, estamos trabalhando para trazer a você a melhor experiência possível.`}
-        redirectLink="/rotas"
-        redirectText="Voltar para a página de rotas"
-      />
-    </PageContent>
+    <div className="flex flex-col min-h-screen min-w-screen w-full h-full bg-pattern bg-no-repeat bg-center bg-zinc-800 text-white pt-4">
+      <DetailsHeader routeName={route.name} />
+      <div className="flex flex-row w-full items-start px-2 py-2">
+        <div className="flex flex-col rounded-xl border border-zinc-700 bg-zinc-100 text-black">
+          <div className="flex flex-col items-start gap-1">
+            <div className="flex flex-row border-b border-black items-center gap-x-2 p-1">
+              <MapPinHouse size={16} />
+              <span className="text-md font-semibold">Partida</span>
+            </div>
+
+            <span className="text-lg font-semibold">
+              {route.arrivalLocation}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

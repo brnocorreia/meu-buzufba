@@ -9,7 +9,7 @@ const routesRecord: RoutesRecord = routesData.reduce((acc, route) => {
 }, {} as RoutesRecord);
 
 export const getRouteById = (id: string): Routes | undefined => {
-  return routesRecord[id];
+  return routesRecord[id.toUpperCase()];
 };
 
 export const getAllRoutes = (): Routes[] => {
