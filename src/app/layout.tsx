@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -14,18 +14,19 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   authors: [{ name: "Bruno Correia", url: "https://github.com/brnocorreia" }],
   creator: "Bruno Correia",
-  themeColor: "#27272A",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "Meu Buzufba",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#27272A",
 };
 
 export default function RootLayout({

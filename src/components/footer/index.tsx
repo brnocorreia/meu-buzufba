@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import DonateButton from "../donate-button";
 
 export default function Footer() {
   return (
