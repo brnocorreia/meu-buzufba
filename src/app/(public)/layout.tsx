@@ -1,5 +1,3 @@
-import Header from "@/components/header";
-
 export default function PublicLayout({
   children,
 }: {
@@ -7,8 +5,7 @@ export default function PublicLayout({
 }) {
   return (
     <>
-      <Header />
-      <div>{children}</div>
+      <div className="bg-zinc-900">{children}</div>
     </>
   );
 }

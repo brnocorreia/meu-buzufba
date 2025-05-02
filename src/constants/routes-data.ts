@@ -35,7 +35,7 @@ export const routesData: Routes[] = [
       "Creche — Canela",
       "Politécnica",
       "Arquitetura",
-      "Estacionamento Geociências"
+      "Estacionamento Geociências",
     ],
     stops: {
       departure: [
@@ -44,7 +44,7 @@ export const routesData: Routes[] = [
         "Campus Vale do Canela",
         "Viaduto Campo Grande",
         "Avenida 7 de Setembro - Faculdade de Economia",
-        "Belas Artes"
+        "Belas Artes",
       ],
       arrival: [
         "Reitoria",
@@ -52,60 +52,72 @@ export const routesData: Routes[] = [
         "Politécnica",
         "Arquitetura",
         "Estacionamento Geociências",
-        "Estacionamento PAF.1 Matemática"
-      ]
+        "Estacionamento PAF.1 Matemática",
+      ],
     },
     obs: "20h10 é o último horário a entrar na Piedade",
   },
-  {  
-    id: "B1",  
-    name: "Rota B1",  
-    tripLength: 11,  
-    departures: [  
-      "6h10", "7h00", "8h00", "9h00",  
-      "10h00", "11h00", "12h00", "13h00",  
-      "15h00", "16h00", "17h00", "18h00",  
-      "19h00", "20h30", "21h40", "22h20"  
-    ],  
-    departureLocation: "Estacionamento São Lázaro",  
-    arrivalLocation: "Reitoria",  
-    servedLocations: [  
-        "Estacionamento São Lázaro",  
-        "Politécnica",  
-        "Arquitetura",  
-        "Viaduto Federação",  
-        "Residência 5",  
-        "Estacionamento Geociências",  
-        "Estacionamento PAF I Matemática",  
-        "Av. Garibaldi",  
-        "Campus Vale do Canela Entrada ICS",  
-        "Viaduto Campo Grande",  
-        "Belas Artes",  
-        "Reitoria",  
-        "Creche – Canela"  
-    ],  
-    stops: {  
-        departure: [  
-            "Estacionamento São Lázaro",  
-            "Politécnica",  
-            "Arquitetura",  
-            "Viaduto Federação",  
-            "Residência 5",  
-            "Estacionamento Geociências",  
-            "Estacionamento PAF I Matemática"  
-        ],  
-        arrival: [  
-            "Av. Garibaldi",  
-            "Campus Vale do Canela Entrada ICS",  
-            "Viaduto Campo Grande",  
-            "Belas Artes",  
-            "Reitoria",  
-            "Creche – Canela",  
-            "Politécnica",  
-            "Estacionamento São Lázaro"  
-        ]  
-    },  
-    obs: "Após fechamento de São Lázaro, carro volta para Ondina e retoma rota até último horário."  
+  {
+    id: "B1",
+    name: "Rota B1",
+    tripLength: 11,
+    departures: [
+      "6h10",
+      "7h00",
+      "8h00",
+      "9h00",
+      "10h00",
+      "11h00",
+      "12h00",
+      "13h00",
+      "15h00",
+      "16h00",
+      "17h00",
+      "18h00",
+      "19h00",
+      "20h30",
+      "21h40",
+      "22h20",
+    ],
+    departureLocation: "Estacionamento São Lázaro",
+    arrivalLocation: "Reitoria",
+    servedLocations: [
+      "Estacionamento São Lázaro",
+      "Politécnica",
+      "Arquitetura",
+      "Viaduto Federação",
+      "Residência 5",
+      "Estacionamento Geociências",
+      "Estacionamento PAF I Matemática",
+      "Av. Garibaldi",
+      "Campus Vale do Canela Entrada ICS",
+      "Viaduto Campo Grande",
+      "Belas Artes",
+      "Reitoria",
+      "Creche – Canela",
+    ],
+    stops: {
+      departure: [
+        "Estacionamento São Lázaro",
+        "Politécnica",
+        "Arquitetura",
+        "Viaduto Federação",
+        "Residência 5",
+        "Estacionamento Geociências",
+        "Estacionamento PAF I Matemática",
+      ],
+      arrival: [
+        "Av. Garibaldi",
+        "Campus Vale do Canela Entrada ICS",
+        "Viaduto Campo Grande",
+        "Belas Artes",
+        "Reitoria",
+        "Creche – Canela",
+        "Politécnica",
+        "Estacionamento São Lázaro",
+      ],
+    },
+    obs: "Após fechamento de São Lázaro, carro volta para Ondina e retoma rota até último horário.",
   },
   {
     id: "B2",
@@ -183,7 +195,7 @@ export const routesData: Routes[] = [
       "19h10",
       "20h30",
       "21h20",
-      "22h20"
+      "22h20",
     ],
     departureLocation: "Direito",
     arrivalLocation: "Ondina/PAF1",
@@ -203,28 +215,28 @@ export const routesData: Routes[] = [
       "Geociências",
     ],
     stops: {
-        departure: [
-          "Estac. PAF I — Matemática",
-          "Av. Garibaldi Pt. R5",
-          "Arquitetura",
-          "São Lázaro",
-          "Politécnica",
-          "Creche — Canela",
-          "Reitoria sentido Campo Grande",
-          "Retorno — rua Baronesa de Sauípe",
-          "Belas Artes",
-          "Reitoria",
-          "Euclides da Cunha — Deli&cia Acesso à direita",
-          "Direito"
-        ],
-        arrival: [
-          "Escola de Música — ISC — Odontologia — Nutrição",
-          "Reitoria",
-          "Politécnica",
-          "Arquitetura",
-          "Estacionamento Geociências",
-          "Estacionamento PAF I — Matemática"
-        ],    
+      departure: [
+        "Estac. PAF I — Matemática",
+        "Av. Garibaldi Pt. R5",
+        "Arquitetura",
+        "São Lázaro",
+        "Politécnica",
+        "Creche — Canela",
+        "Reitoria sentido Campo Grande",
+        "Retorno — rua Baronesa de Sauípe",
+        "Belas Artes",
+        "Reitoria",
+        "Euclides da Cunha — Deli&cia Acesso à direita",
+        "Direito",
+      ],
+      arrival: [
+        "Escola de Música — ISC — Odontologia — Nutrição",
+        "Reitoria",
+        "Politécnica",
+        "Arquitetura",
+        "Estacionamento Geociências",
+        "Estacionamento PAF I — Matemática",
+      ],
     },
     obs: "19h10 é o último horário a entrar em São Lázaro",
   },
@@ -263,26 +275,26 @@ export const routesData: Routes[] = [
       "Geociências",
     ],
     stops: {
-        departure: [
-          "Estacionamento PAF I Matemática",
-          "Av. Garibaldi Pt. R5",
-          "Arquitetura",
-          "Politécnica",
-          "Creche — Canela",
-          "Reitoria",
-          "Rua Direita da Piedade"
-        ],
-        arrival: [
-          "Piedade",
-          "Belas artes",
-          "Reitoria",
-          "Creche / Canela",
-          "Politécnica",
-          "São Lázaro",
-          "Arquitetura",
-          "Estacionamento Geociências",
-          "Estacionamento PAF I Matemática"
-        ],      
+      departure: [
+        "Estacionamento PAF I Matemática",
+        "Av. Garibaldi Pt. R5",
+        "Arquitetura",
+        "Politécnica",
+        "Creche — Canela",
+        "Reitoria",
+        "Rua Direita da Piedade",
+      ],
+      arrival: [
+        "Piedade",
+        "Belas artes",
+        "Reitoria",
+        "Creche / Canela",
+        "Politécnica",
+        "São Lázaro",
+        "Arquitetura",
+        "Estacionamento Geociências",
+        "Estacionamento PAF I Matemática",
+      ],
     },
     obs: "18:50 é o último horário a entrar em São Lázaro",
   },
@@ -331,7 +343,7 @@ export const routesData: Routes[] = [
         "São Lázaro",
         "Politécnica",
         "Creche — Canela",
-        "Reitoria"
+        "Reitoria",
       ],
       arrival: [
         "Campo Grande",
@@ -342,8 +354,8 @@ export const routesData: Routes[] = [
         "Arquitetura",
         "Estac. PAF I — Matemática",
         "Facom",
-        "Instituto de Geociências"
-      ]      
+        "Instituto de Geociências",
+      ],
     },
     obs: "19h20 é o último horário a entrar em São Lázaro",
   },

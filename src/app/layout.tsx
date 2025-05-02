@@ -26,7 +26,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#27272A",
+  themeColor: "#18181b",
 };
 
 export default function RootLayout({
@@ -39,7 +39,7 @@ export default function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-title" content="Buzufba" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="theme-color" content="#27272a" />
+        <meta name="theme-color" content="#18181b" />
       </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>

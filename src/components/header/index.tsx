@@ -59,7 +59,7 @@ export default function Header({ isSimple = false }: HeaderProps) {
         />
       )}
 
-      <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center px-3 py-5 bg-transparent">
+      <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center py-5 bg-transparent">
         <header
           className={cn(
             "w-full max-w-6xl rounded-xl transition-all duration-300 flex flex-col",

@@ -1,6 +1,6 @@
-import PageContent from "@/components/page/page-content";
+import PublicContent from "@/components/shared/ui/public-content";
 import { getRouteById, getRouteIds } from "@/lib/routes-repository";
-import { OctagonX, Building, MapPin, Clock } from "lucide-react";
+import { OctagonX, Building, MapPin, Clock, ShieldAlert } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import BusSchedule from "@/components/bus-schedule";
@@ -21,7 +21,7 @@ export default async function Route({
 
   if (!route) {
     return (
-      <PageContent>
+      <PublicContent hideFooter>
         <EmptyPage
           title="Oops!"
           description={
@@ -31,17 +31,17 @@ export default async function Route({
           redirectText="Voltar para a página de rotas"
           icon={<OctagonX className="w-20 h-20 text-red-500" />}
         />
-      </PageContent>
+      </PublicContent>
     );
   }
 
   return (
-    <PageContent hideFooter>
-      <div className="flex flex-col w-full max-w-full bg-white rounded-xl p-6 mb-2 shadow-md">
+    <PublicContent hideFooter>
+      <div className="flex flex-col w-full max-w-full pt-2">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-3 gap-y-2">
           <div>
-            <h1 className="text-3xl font-bold">{route.name}</h1>
-            <span className="text-zinc-500 text-start text-sm sm:text-base text-pretty">
+            <h1 className="text-2xl font-bold text-white">{route.name}</h1>
+            <span className="text-zinc-200 text-start text-sm sm:text-base text-pretty">
               {route.departureLocation} {"->"} {route.arrivalLocation}
             </span>
           </div>
@@ -49,13 +49,11 @@ export default async function Route({
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
           <div className="flex flex-col w-full gap-2">
-            <div className="flex flex-row items-center gap-x-2">
+            <div className="flex flex-row items-center gap-x-2 text-white">
               <Building size={20} />
-              <p className="text-black font-semibold text-base">
-                Locais atendidos
-              </p>
+              <span className="font-semibold text-base">Locais atendidos</span>
             </div>
-            <div className="flex flex-col w-full gap-2 p-4 border border-zinc-200 rounded-md shadow-sm h-full">
+            <div className="flex flex-col w-full gap-2 p-4 border border-zinc-200 rounded-md shadow-sm h-full bg-white">
               <div className="flex flex-col md:flex-row gap-2 text-zinc-700 text-sm">
                 <div className="flex-1 flex flex-col gap-y-2">
                   {route.servedLocations
@@ -94,13 +92,11 @@ export default async function Route({
           </div>
 
           <div className="flex flex-col w-full gap-2">
-            <div className="flex flex-row items-center gap-x-2">
+            <div className="flex flex-row items-center gap-x-2 text-white">
               <MapPin size={20} />
-              <p className="text-black font-semibold text-base">
-                Pontos de parada
-              </p>
+              <span className="font-semibold text-base">Pontos de parada</span>
             </div>
-            <div className="border border-zinc-200 rounded-md shadow-sm p-4 h-full">
+            <div className="border border-zinc-200 rounded-md shadow-sm p-4 h-full bg-white">
               <Tabs defaultValue="going" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-4">
                   <TabsTrigger value="going">Ida</TabsTrigger>
@@ -111,7 +107,7 @@ export default async function Route({
                     {route.stops.departure.map((time, index) => (
                       <Badge
                         key={index}
-                        className="bg-zinc-300 text-black hover:bg-zinc-100 cursor-default"
+                        className="bg-zinc-900 text-white hover:bg-zinc-700 cursor-default"
                       >
                         {time}
                       </Badge>
@@ -123,7 +119,7 @@ export default async function Route({
                     {route.stops.arrival.map((time, index) => (
                       <Badge
                         key={index}
-                        className="bg-zinc-300 text-black hover:bg-zinc-100 cursor-default"
+                        className="bg-zinc-900 text-white hover:bg-zinc-700 cursor-default"
                       >
                         {time}
                       </Badge>
@@ -135,32 +131,33 @@ export default async function Route({
           </div>
 
           <div className="flex flex-col w-full gap-2">
-            <div className="flex flex-row items-center gap-x-2">
+            <div className="flex flex-row items-center gap-x-2 text-white">
               <Clock size={20} />
               <div className="flex flex-row items-center">
-                <span className="text-black font-semibold text-base">
-                  Saídas
-                </span>
+                <span className="font-semibold text-base">Saídas</span>
                 <InfoPopover />
               </div>
             </div>
-            <div className="flex flex-col w-full p-4 border border-zinc-200 rounded-md shadow-sm h-full">
+            <div className="flex flex-col w-full p-4 border border-zinc-200 rounded-md shadow-sm h-full bg-white">
               <div className="flex flex-wrap gap-2">
                 <BusSchedule departures={route.departures} />
               </div>
             </div>
           </div>
-        </div>
 
-        {route.obs && (
-          <div className="flex flex-col w-full gap-2 mt-6">
-            <p className="text-black font-semibold text-base">Observações</p>
-            <div className="text-sm text-zinc-700 p-4 border border-zinc-200 rounded-md shadow-sm">
-              {route.obs}
+          {route.obs && (
+            <div className="flex flex-col w-full gap-2">
+              <div className="flex flex-row items-center gap-x-2 text-white">
+                <ShieldAlert size={20} />
+                <span className="font-semibold text-base">Observações</span>
+              </div>
+              <div className="text-sm p-4 border border-zinc-200 rounded-md shadow-sm h-full bg-white">
+                {route.obs}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </PageContent>
+    </PublicContent>
   );
 }
