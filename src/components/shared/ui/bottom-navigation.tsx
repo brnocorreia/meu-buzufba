@@ -14,7 +14,7 @@ const defaultNavItems: NavigationItem[] = [
   { label: "Rotas", icon: <Bus size={20} />, path: "/rotas" },
   { label: "Paradas", icon: <MapPin size={20} />, path: "/paradas" },
   { label: "Buscar", icon: <Search size={20} />, path: "/buscar" },
-  { label: "Perfil", icon: <User size={20} />, path: "/perfil" },
+  // { label: "Perfil", icon: <User size={20} />, path: "/perfil" },
   { label: "Sobre", icon: <Info size={20} />, path: "/sobre" },
 ];
 
