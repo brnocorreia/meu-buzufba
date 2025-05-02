@@ -11,11 +11,12 @@ import {
 } from "@/components/ui/card";
 import { RoutesWithFavorite } from "@/@types/routes";
 import BusSchedule from "@/components/bus-schedule";
-import RouteDetailsPopup from "@/components/route-details-popup";
 import { useAtom } from "jotai";
 import { favoriteRoutesAtom } from "@/atoms/favorite-routes";
 import FavoriteIcon from "@/components/favorite-icon";
 import { InfoPopover } from "../info-popover";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 type CardProps = React.ComponentProps<typeof Card>;
 
@@ -72,7 +73,9 @@ export function RouteCard({ className, route, ...props }: RouteCardProps) {
         </div>
       </CardContent>
       <CardFooter>
-        <RouteDetailsPopup route={route} />
+        <Button asChild className="w-full">
+          <Link href={`/rotas/${route.id}`}>Ver mais detalhes</Link>
+        </Button>
       </CardFooter>
     </Card>
   );

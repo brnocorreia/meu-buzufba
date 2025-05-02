@@ -19,16 +19,17 @@ export default function EmptyPage({
 }: EmptyPageProps) {
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-3 mb-4">
-        {icon || <Construction className="w-20 h-20 text-white" />}
-        <h1 className="text-4xl md:text-6xl font-bold text-white text-wrap">
-          {title}
-        </h1>
+      <div className="flex flex-col items-center justify-center gap-3 mb-4 text-white">
+        {icon || <Construction className="w-20 h-20 " />}
+        <h1 className="text-4xl md:text-6xl font-bold text-wrap">{title}</h1>
       </div>
-      <p className="text-lg md:text-xl text-gray-300 mb-8 text-center max-w-2xl">
+      <span className="text-lg md:text-xl text-zinc-300 mb-8 text-center max-w-2xl">
         {description}
-      </p>
-      <Button asChild className="flex items-center gap-2 hover:bg-zinc-700">
+      </span>
+      <Button
+        asChild
+        className="flex items-center gap-2 hover:bg-zinc-700 border border-white"
+      >
         <Link href={redirectLink}>
           <ArrowLeftIcon className="w-4 h-4" />
           {redirectText}

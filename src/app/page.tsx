@@ -1,10 +1,10 @@
 import EmptyPage from "@/components/empty-page";
-import PageContent from "@/components/page/page-content";
+import PublicContent from "@/components/shared/ui/public-content";
 import { OctagonX } from "lucide-react";
 
 export default function Home() {
   return (
-    <PageContent>
+    <PublicContent hideFooter>
       <EmptyPage
         title="Oops!"
         description={
@@ -14,6 +14,6 @@ export default function Home() {
         redirectText="Voltar para a página de rotas"
         icon={<OctagonX className="w-20 h-20 text-red-500" />}
       />
-    </PageContent>
+    </PublicContent>
   );
 }
