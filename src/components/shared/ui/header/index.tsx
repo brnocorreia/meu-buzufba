@@ -1,14 +1,12 @@
 "use client";
 
 import { FaBusAlt } from "react-icons/fa";
-import DonateButton from "@/components/donate-button";
 import { useRouter } from "next/navigation";
-import { HeaderNavigationMenu } from "@/components/header/navigation-menu";
+import { HeaderNavigationMenu } from "@/components/shared/ui/header/navigation-menu";
 import GithubButton from "@/components/github-button";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { BusFront, MapPin, Menu, X } from "lucide-react";
-import { VisuallyHidden } from "@/components/ui/visually-hidden";
 
 interface HeaderProps {
   isSimple?: boolean;

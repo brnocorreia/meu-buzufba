@@ -1,6 +1,5 @@
 import Footer from "@/components/footer";
 import BottomNavigation from "./bottom-navigation";
-import Header from "@/components/header";
 
 interface PublicContentProps {
   children: React.ReactNode;
