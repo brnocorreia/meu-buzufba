@@ -1,13 +1,18 @@
 import PublicContent from "@/components/shared/ui/public-content";
 import { getRouteById, getRouteIds } from "@/lib/routes-repository";
-import { OctagonX, Building, MapPin, Clock, ShieldAlert } from "lucide-react";
+import {
+  OctagonX,
+  Building,
+  MapPin,
+  Clock,
+  ShieldAlert,
+  Map,
+} from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import BusSchedule from "@/components/bus-schedule";
 import EmptyPage from "@/components/empty-page";
 import { InfoPopover } from "@/components/info-popover";
-import { useMemo } from "react";
-import dynamic from "next/dynamic";
 import RoutesMap from "@/components/map/routes-map";
 
 export async function generateStaticParams() {
@@ -50,9 +55,6 @@ export default async function Route({
           </div>
         </div>
 
-        <div className="w-full h-96">
-          <RoutesMap />
-        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
           <div className="flex flex-col w-full gap-2">
             <div className="flex flex-row items-center gap-x-2 text-white">
@@ -94,6 +96,16 @@ export default async function Route({
                     ))}
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="w-full rounded-lg md:hidden">
+            <div className="flex flex-row items-center gap-x-2 text-white mb-2">
+              <Map size={20} />
+              <span className="font-semibold text-base">Mapa</span>
+            </div>
+            <div className="w-full h-96 rounded-lg overflow-hidden">
+              <RoutesMap />
             </div>
           </div>
 

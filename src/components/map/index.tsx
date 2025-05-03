@@ -8,27 +8,19 @@ import {
   useMap,
   ZoomControl,
 } from "react-leaflet";
-import { icon, LatLngExpression, LatLngTuple, Map as MapType } from "leaflet";
+import { LatLngExpression, LatLngTuple } from "leaflet";
+import { RecenterButton } from "./recenter-button";
 
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
+import { mapDefaults } from "@/constants/map-defaults";
 
 interface MapProps {
   children?: React.ReactNode;
   center?: LatLngExpression | LatLngTuple;
   zoom?: number;
 }
-
-const mapDefaults: {
-  zoom: number;
-  minZoom: number;
-  center: LatLngExpression | LatLngTuple;
-} = {
-  zoom: 13,
-  minZoom: 5,
-  center: [-13.001785193441066, -38.50697896567024],
-};
 
 export const Map = (props: MapProps) => {
   const {
@@ -40,21 +32,23 @@ export const Map = (props: MapProps) => {
     <MapContainer
       zoom={zoom}
       minZoom={mapDefaults.minZoom}
+      maxZoom={mapDefaults.maxZoom}
       center={center}
       zoomControl={false}
       attributionControl={false}
       scrollWheelZoom={true}
-      style={{ height: "100%", width: "100%" }}
+      style={{ height: "100%", width: "100%", zIndex: 3 }}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
       />
       <Marker position={center} draggable={false}>
         <Popup>Hey ! I study here</Popup>
       </Marker>
       {children}
       <ZoomControl position="topright" />
+      <RecenterButton center={center} zoom={zoom} />
     </MapContainer>
   );
 };

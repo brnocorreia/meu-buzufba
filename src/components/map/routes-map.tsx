@@ -1,7 +1,7 @@
 "use client";
 
+import { geojsonTest } from "@/constants/geojson";
 import dynamic from "next/dynamic";
-// import { Marker, Popup } from "react-leaflet";
 
 const Map = dynamic(
   () => import("@/components/map").then((component) => component.Map),
@@ -16,13 +16,18 @@ const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
   ssr: false,
 });
 
+const GeoJSON = dynamic(
+  () => import("react-leaflet").then((mod) => mod.GeoJSON),
+  {
+    ssr: false,
+  }
+);
+
 export default function RoutesMap() {
   return (
     <>
       <Map>
-        <Marker position={[-13.001785193441066, -38.50697896567024]}>
-          <Popup>Hey ! I study here</Popup>
-        </Marker>
+        <GeoJSON data={geojsonTest} />
       </Map>
     </>
   );
