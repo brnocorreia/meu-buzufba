@@ -6,6 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import BusSchedule from "@/components/bus-schedule";
 import EmptyPage from "@/components/empty-page";
 import { InfoPopover } from "@/components/info-popover";
+import { useMemo } from "react";
+import dynamic from "next/dynamic";
+import RoutesMap from "@/components/map/routes-map";
 
 export async function generateStaticParams() {
   return getRouteIds().map((id) => ({ id }));
@@ -47,6 +50,9 @@ export default async function Route({
           </div>
         </div>
 
+        <div className="w-full h-96">
+          <RoutesMap />
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
           <div className="flex flex-col w-full gap-2">
             <div className="flex flex-row items-center gap-x-2 text-white">
