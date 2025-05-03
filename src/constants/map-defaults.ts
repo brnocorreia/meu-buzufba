@@ -7,7 +7,7 @@ export const mapDefaults: {
   center: LatLngExpression | LatLngTuple;
 } = {
   zoom: 15,
-  minZoom: 20,
-  maxZoom: 2,
+  minZoom: 2,
+  maxZoom: 20,
   center: [-13.001785193441066, -38.50697896567024],
 };
