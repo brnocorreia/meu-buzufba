@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Info, Bus, MapPin, User, Search } from "lucide-react";
+import { Info, Bus, MapPin, User, Search, Home } from "lucide-react";
 
 interface NavigationItem {
   label: string;
@@ -11,10 +11,9 @@ interface NavigationItem {
 }
 
 const defaultNavItems: NavigationItem[] = [
+  { label: "Home", icon: <Home size={20} />, path: "/" },
   { label: "Rotas", icon: <Bus size={20} />, path: "/rotas" },
   { label: "Paradas", icon: <MapPin size={20} />, path: "/paradas" },
-  { label: "Buscar", icon: <Search size={20} />, path: "/buscar" },
-  // { label: "Perfil", icon: <User size={20} />, path: "/perfil" },
   { label: "Sobre", icon: <Info size={20} />, path: "/sobre" },
 ];
 
